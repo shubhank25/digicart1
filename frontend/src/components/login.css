@@ -1,0 +1,77 @@
+* {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif;
+  }
+  
+  body {
+    height: 100vh;
+    /* background-image: url(back_img.jpeg); */
+    /* background-image: linear-gradient(to bottom left, rgba(219, 216, 0, 0.418), rgba(141, 3, 221, 0.671)); */
+    /* background: linear-gradient(
+        to bottom left,
+        rgba(27, 27, 0, 0.575),
+        rgba(14, 0, 22, 0.568)
+      ),
+      url(./back_img.jpeg) no-repeat top; */
+    background-size: cover;
+    background-attachment: fixed;
+
+    
+ 
+  }
+  
+  .my-card {
+    /* border: 1px solid red; */
+    background-color: white;
+    width: 300px;
+    margin: 200px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px 4px rgba(0, 0, 0, 0.301);
+  }
+  
+  label,
+  input,
+  button {
+    display: block;
+  }
+  
+  label {
+    margin-top: 20px;
+  }
+  
+  input {
+    margin-top: 5px;
+    padding: 8px 20px;
+    border-radius: 20px;
+    border: none;
+    box-shadow: inset 1px 2px 3px 0px rgba(0, 0, 0, 0.301);
+    width: 85%;
+  }
+  
+  input:focus {
+    outline: none;
+    background-color: rgba(104, 104, 255, 0.445);
+  }
+  
+  /* button {
+    margin-top: 40px;
+    background-color: blueviolet;
+    border: 1px solid white;
+    padding: 7px 10px;
+    color: white;
+    transition-duration: 300ms;
+    border-radius: 20px;
+    width: 100%;
+  } */
+  
+  button:hover {
+    background-color: white;
+    color: blueviolet;
+    border: 1px solid blueviolet;
+  }
+  
+  .title {
+    text-align: center;
+  }

@@ -11,7 +11,7 @@ function App() {
         <Header />
         <Route component={Register} path={'/register'} />
         <Route component={Login} path={'/login'} />
-        <Footer />
+        {/* <Footer /> */}
       </Router>
     </div>
   );
