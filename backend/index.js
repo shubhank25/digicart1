@@ -8,6 +8,15 @@ const userRouter = require('./routers/userManager');
 const utilRouter = require('./routers/utils');
 
 const cors = require('cors');
+const server = require('http').createServer(app);
+
+const io = require('socket.io')(derver, {cors : { origin: 'http://localhost:3000'}});
+
+io.on('connection', (socket) => {
+    console.log('client connected');
+})
+
+const port = 5000;
 
 app.use(cors());
 app.use(express.json());
@@ -21,6 +30,6 @@ app.get('/home', (req, res) => {
 })
 
 
-app.listen(port, () => {
+server.listen(port, () => {
     console.log('server started at port 5000')
 })
