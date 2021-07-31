@@ -1,0 +1,25 @@
+.main-footer {
+    width: 100%;
+    bottom: 2;
+    position: absolute;
+    background-color:#b34c07;
+    display: flex;
+    align-items: center;
+    padding: 1rem 1rem;
+    z-index: 50;
+    border-radius: 4px;
+  }
+
+  .container {
+   color: #f4f4f4;
+    cursor: pointer;
+    padding: .5rem 1rem;
+    width: 100%;
+  }
+
+  .row{
+    font-size: 1rem;
+
+  }
+
+ 
