@@ -1,6 +1,6 @@
 const api_config = {
     port: 5000,
-    db_url: 'mongodb+srv://mmm:mmm@cluster0.gvyon.mongodb.net/model_hosting?retryWrites=true&w=majority'
+    db_url: 'mongodb+srv://shubhank-06:shubhank-06@mini-mern.gjtxr.mongodb.net/digiCart?retryWrites=true&w=majority'
 
 }
 
