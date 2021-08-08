@@ -1,0 +1,77 @@
+* {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+    }
+    
+
+/* h4{
+    margin-left: 20px;
+    color: rgb(13, 66, 134);
+    margin-bottom: 8px;
+    text-align: left;  
+} */
+
+.col-md-12{
+    margin-left: 20px;
+    color: rgb(13, 66, 134);
+    margin-bottom: 8px;
+    text-align: left; 
+
+}
+
+.home_text{
+    margin-left: 20px;
+    color: rgb(134, 13, 13);
+    margin-bottom: 8px;
+    text-align: left; 
+    text-align:justify;
+}
+
+.home_text2 {
+    text-align: right;
+  
+    color: rgb(40, 16, 148);
+    margin-bottom: 120px;
+   
+
+}
+
+.signup_home:hover {
+    color: #1100ff;
+  }
+  
+  
+  
+  .signup_home {
+    
+    color: #fd0707;
+    font-size: 1.4rem;
+    cursor: pointer;
+  }
+  
+  .signin_home:hover {
+    color: #1100ff;
+  }
+  
+  
+  
+  .sign_home {
+    
+    color: #fd0707;
+    font-size: 1.4rem;
+    cursor: pointer;
+  }
+  
+  .container1 {
+    width: 100%;
+    background-color: #5a0303f6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem 2rem;
+    z-index: 50;
+    border-radius: 5px;
+  }
+  
+  

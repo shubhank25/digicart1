@@ -1,24 +1,19 @@
 import "./HomeScreen.css";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import products from '../productData';
 
 // Components
 import Product from "../components/Product";
 
 //Actions
-import { getProducts as listProducts } from "../redux/actions/productActions";
+// import { getProducts as listProducts } from "../redux/actions/productActions";
 
 
 
 const HomeScreen = () => {
-  const dispatch = useDispatch();
 
-  const getProducts = useSelector((state) => state.getProducts);
-  const { products, loading, error } = getProducts;
-
-  useEffect(() => {
-    dispatch(listProducts());
-  }, [dispatch]);
+  const [productList, setProductList] = useState(products);
+  const [loading, setLoading] = useState(false);
 
   
   return (
@@ -28,17 +23,15 @@ const HomeScreen = () => {
       <div className="homescreen__products" >
         {loading ? (
           <h2>Loading...</h2>
-        ) : error ? (
-          <h2>{error}</h2>
         ) : (
-          products.map((product) => (
+          productList.map((product) => (
             <Product
-              key={product._id}
+              key={product.id}
               name={product.name}
               description={product.description}
               price={product.price}
               imageUrl={product.imageUrl}
-              productId={product._id}
+              productId={product.id}
             />
           ))
         )}

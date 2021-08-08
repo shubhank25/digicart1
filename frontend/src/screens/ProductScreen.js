@@ -1,26 +1,37 @@
 import "./ProductScreen.css";
 import { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
+import app_config from '../config';
+import products from '../productData';
 
 // Actions
-import { getProductDetails } from "../redux/actions/productActions";
-import { addToCart } from "../redux/actions/cartActions";
+// import { getProductDetails } from "../redux/actions/productActions";
+// import { addToCart } from "../redux/actions/cartActions";
 
 const ProductScreen = ({ match, history }) => {
   const [qty, setQty] = useState(1);
-  const dispatch = useDispatch();
+  
+  const [loading, setLoading] = useState(false);
 
-  const productDetails = useSelector((state) => state.getProductDetails);
-  const { loading, error, product } = productDetails;
+
+  const { id } = useParams();
+  const url = app_config.api_url;
+  const productList = products;
+  const [productData, setProductData] = useState(productList[id-1]);
+  console.log(productData);
+  let cart = JSON.parse(sessionStorage.getItem('cart'));
 
   useEffect(() => {
-    if (product && match.params.id !== product._id) {
-      dispatch(getProductDetails(match.params.id));
-    }
-  }, [dispatch, match, product]);
+      
+  }, [])
 
   const addToCartHandler = () => {
-    dispatch(addToCart(product._id, qty));
+    if(!cart){
+      cart = [];
+    }
+    cart.push({data : productData, qty: qty});
+    sessionStorage.setItem('cart', JSON.stringify(cart));
+    
     history.push(`/cart`);
   };
 
@@ -28,37 +39,35 @@ const ProductScreen = ({ match, history }) => {
     <div className="productscreen">
       {loading ? (
         <h2>Loading...</h2>
-      ) : error ? (
-        <h2>{error}</h2>
       ) : (
         <>
           <div className="productscreen__left">
             <div className="left__image">
-              <img src={product.imageUrl} alt={product.name} />
+              <img className="img-fluid" src={productData.imageUrl} alt={productData.name} />
             </div>
             <div className="left__info">
-              <p className="left__name">{product.name}</p>
-              <p className="rupa">Price: ₹{product.price}</p>
-              <p>Description: {product.description}</p>
+              <p className="left__name">{productData.name}</p>
+              <p className="rupa">Price: ₹{productData.price}</p>
+              <p>Description: {productData.description}</p>
             </div>
           </div>
 
-          <div className="productscreen__right">
+          <div className="productDatascreen__right">
             <div className="right__info">
               <p>
                 Price:
-                <span>₹{product.price}</span>
+                <span>₹{productData.price}</span>
               </p>
               <p>
                 Status:
                 <span>
-                  {product.countInStock > 0 ? "In Stock" : "Out of Stock"}
+                  {productData.countInStock > 0 ? "In Stock" : "Out of Stock"}
                 </span>
               </p>
               <p>
                 Qty
                 <select className="qty_color" value={qty} onChange={(e) => setQty(e.target.value)}>
-                  {[...Array(product.countInStock).keys()].map((x) => (
+                  {[...Array(productData.countInStock).keys()].map((x) => (
                     <option key={x + 1} value={x + 1}>
                       {x + 1}
                     </option>

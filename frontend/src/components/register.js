@@ -1,5 +1,6 @@
-
+import "./register.css";
 import { Formik } from 'formik';
+import Swal from 'sweetalert2';
 import app_config from '../config';
 
 const Register = () => {
@@ -22,17 +23,22 @@ const Register = () => {
             body: JSON.stringify(values)
         }
 
-        fetch(url + '/api/user/add', reqOptions)
+        fetch(url + '/user/add', reqOptions)
             .then((res) => { res.json() })
-            .then((data) => { console.log(data) });
+            .then((data) => { console.log(data) 
+            Swal.fire({
+                icon : 'success',
+                title: 'Signup Success'
+            })
+            window.location.replace('/login');
+        });
 
     }
 
     return (
-        <div className="col-md-10">
-            <div class="row" style={{ marginTop: '10rem' }}>
-                <div className="col-md-6"></div>
-                <div className="col-md-6">
+        <div className=" col-md-2 mx-auto mt-5">
+            <div class="mycard-1 mt-5" style={{ marginTop: '0rem' }}>
+            
 
                     <Formik initialValues={registerForm} onSubmit={submitForm}>
                         {({
@@ -40,32 +46,32 @@ const Register = () => {
                             handleSubmit
                         }) => (
                             <form onSubmit={handleSubmit}>
-                                <h2 className="text-center">SIGNUP FORM</h2>
+                                <h2 className="text-center">Register here</h2>
                                 <hr />
 
                                 <label>Name</label>
-                                <input className="form-control" name="name" onChange={handleChange} />
+                                <input className="form-control" name="name" onChange={handleChange} required />
 
                                 <label>Email</label>
-                                <input type="email" className="form-control" name="email" onChange={handleChange} />
+                                <input type="email" className="form-control" name="email" onChange={handleChange} required/>
 
                                 <label>Password</label>
-                                <input type="password" className="form-control" name="password" onChange={handleChange} />
+                                <input type="password" className="form-control" name="password" onChange={handleChange} required />
 
                                 <label>Age</label>
-                                <input type="number" className="form-control" name="age" onChange={handleChange} />
+                                <input type="text" className="form-control" name="age" onChange={handleChange} required/>
 
 
 
-                                <button type="submit" className="btn btn-primary w-100 mt-5">Submit</button>
+                                <button type="submit" className=" button_submit2 btn btn-outline-success w-50 mt-5">Submit</button>
 
                             </form>
                         )}
                     </Formik>
 
-                </div>
-            </div>
-        </div>
+               </div>
+               </div>
+            
     )
 }
 

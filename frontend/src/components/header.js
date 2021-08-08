@@ -1,53 +1,66 @@
+import "./header.css";
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
+
+
+
 
 const Header = () => {
 
+    const logOut = () => {
+        console.log('save success');
+        Swal.fire({
+            icon: 'success',
+            title: 'Logout'
+        })
+        window.location.replace('/login');
+    }
+
     return (
-        <nav class="navbar navbar-expand-md navbar-dark bg-info text-white">
+        <>
+        <nav class="navbar navbar-expand-md">
             <div class="container-fluid">
 
-                {/* <a class="navbar-brand" href="#">DigiCart</a> */}
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+                    <Link class="nav-link1" to={'/digicart'}><h4 style={{ color: "black" }} >Digicart</h4></Link>
+
+                    &nbsp;
+                    &nbsp;
+
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+
+                        <li >
+                        <Link class="nav-link" to={'/home'}>Home</Link>
                         </li>
-                        <li class="nav-item">
+                        <li >
                             <Link class="nav-link" to={'/login'}>Login</Link>
                         </li>
-                        <li class="nav-item">
+                        <li >
                             <Link class="nav-link" to={'/register'}>Register</Link>
                         </li>
-
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                              Services
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Customer Services</a></li>
-                                <li><a class="dropdown-item" href="#"></a></li>
-                                
-                                
-                            </ul>
+                        <li >
+                      
+                        <Link class="nav-link" onClick={logOut} to={'/login'}>Logout</Link>
                         </li>
-
-                        {/* <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                        </li> */}
                     </ul>
-                    
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
+
+
                 </div>
             </div>
         </nav>
+
+
+        </>
+    
     )
-}
+    }
+
+
 
 export default Header;
