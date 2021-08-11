@@ -20,7 +20,7 @@ const Login = () => {
                 console.log(data);
 
                 if (data) {
-                    if (data.password == password) {
+                    if (data.password === password) {
                         console.log('login success');
                         Swal.fire({
                             icon: 'success',
@@ -35,19 +35,6 @@ const Login = () => {
 
                         })
                         window.location.replace('/home');
-                
-                        
-                    // else if(data.password !== password){
-
-                    //     console.log('Your email is not register in our database');
-            
-                    //     Swal.fire({
-                            
-                    //         icon: 'error',
-                    //         title: 'Your email is not register in our database'
-                    //     })
-                    //     sessionStorage.setItem('user', JSON.stringify(data));
-                    //     window.location.replace('/register');
                     
                     
                     }  else if(data.password !== password){
@@ -57,20 +44,25 @@ const Login = () => {
                     Swal.fire({
                         
                         icon: 'error',
-                        title: 'Incorrect Password'
+                        title: 'Login failed',
+                        text: 'Incorrect password'
+
                     })
+                
+                    }
+            } else{
 
-                
-                
-            } else {
                     console.log('user not found');
+
+                    
                 }
 
-                }
+                
             })
         
 
     }
+    
 
     return (
         <div className="col-md-2 mx-auto mt-5">

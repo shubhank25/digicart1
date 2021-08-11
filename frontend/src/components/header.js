@@ -1,4 +1,5 @@
 import "./header.css";
+import { useState } from "react";
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
@@ -6,9 +7,9 @@ import Swal from 'sweetalert2';
 
 
 const Header = () => {
-
+    const [currentUser, setCurrentUser] = useState(sessionStorage.getItem('user'));
     const logOut = () => {
-        console.log('save success');
+        sessionStorage.removeItem('user');
         Swal.fire({
             icon: 'success',
             title: 'Logout'
@@ -16,51 +17,74 @@ const Header = () => {
         window.location.replace('/login');
     }
 
-    return (
-        <>
-        <nav class="navbar navbar-expand-md">
-            <div class="container-fluid">
+    const loggedIn = () => {
+        console.log(currentUser);
+        if (currentUser) {
+            return <>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                <li >
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <Link className="btn btn-light text-dark me-2" to={'/home'}>Home</Link>
+                </li>
+                
+                <li>
+                    <i className="fas fa-shopping-cart"></i>
 
+                    <Link to={"/cart"} className="btn btn-outline-success text-dark me-2">
+                        Cart
+                    </Link>
+                </li>
+                &nbsp;
+               
+                <li >
+                    <button className="btn btn-danger" onClick={logOut}>
 
-                    <Link class="nav-link1" to={'/digicart'}><h4 style={{ color: "black" }} >Digicart</h4></Link>
+                        Logout
 
-                    &nbsp;
-                    &nbsp;
+                    </button>
+                </li>
+            </>
+        } else {
+            return <>
 
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li>
+                    <Link to="/login" type="button" className="btn btn-outline-success me-2">Login</Link>
+                </li>
 
-                        <li >
-                        <Link class="nav-link" to={'/home'}>Home</Link>
-                        </li>
-                        <li >
-                            <Link class="nav-link" to={'/login'}>Login</Link>
-                        </li>
-                        <li >
-                            <Link class="nav-link" to={'/register'}>Register</Link>
-                        </li>
-                        <li >
-                      
-                        <Link class="nav-link" onClick={logOut} to={'/login'}>Logout</Link>
-                        </li>
-                    </ul>
+                <li>
+                    <Link to="/register" className="btn btn-outline-dark">Sign-up</Link>
 
+                </li>
+            </>
 
-                </div>
-            </div>
-        </nav>
-
-
-        </>
-    
-    )
+        }
     }
 
 
+    return (
+
+        <header>
+            <div className="px-3 py-2 navbar-nav">
+                <div className="container">
+                    <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                        <a href="/digicart" className=" d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
+                            <h2 class="digicart1">Digicart</h2>
+                        </a>
+
+                        <ul className="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+
+
+                            {
+                                loggedIn()
+                            }
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </header>
+    )
+}
 
 export default Header;

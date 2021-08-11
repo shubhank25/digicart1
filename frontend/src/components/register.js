@@ -36,7 +36,7 @@ const Register = () => {
     }
 
     return (
-        <div className=" col-md-2 mx-auto mt-5">
+        <div className=" col-md-4 mx-auto mt-5">
             <div class="mycard-1 mt-5" style={{ marginTop: '0rem' }}>
             
 

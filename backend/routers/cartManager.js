@@ -52,7 +52,7 @@ router.get('/getbyuser/:id', (req, res) => {
 
     Model.find({user : req.params.id})
         .then(data => {
-            console.log('cart data fetched by  userid');
+            console.log('cart data fetched by userid');
             res.status(200).json(data);
         })
         .catch(err => {

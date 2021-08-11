@@ -26,9 +26,6 @@ const CartScreen = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(values)
     }
-
-
-
     fetch(url + '/cart/add', reqOptions)
       .then((res) => { res.json() })
       .then((data) => {

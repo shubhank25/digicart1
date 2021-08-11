@@ -4,30 +4,26 @@
     sans-serif;
     }
 
-.navbar{
-    background: rgba(23, 221, 23, 0.473);
+.navbar-nav{
+    background: rgba(3, 217, 255, 0.527);
+   
   
 }
 
+.navbar-nav:hover {
+    background: rgba(0, 89, 255, 0.452);
+   
+  }
+  .digicart1{
+      color: rgb(0, 0, 0);
+      font-weight: bold;
+  }
 
-.nav-item1{
-    cursor: pointer;
+.digicart1:hover{
+    
+   color: rgb(192, 45, 101);
 }
 
-.nav-item{
-    cursor: pointer;
+.nav-link{
+    padding: 0px 20px 20px 10px;
 }
-.nav-link1{
-  text-decoration-line: none;
-}
-
-h4{
-    font-weight: bold;
-    height: 3.5vh;
-}
-
-.navbar-toggler{
- background-color: rgba(255, 255, 255, 0.973);
-
-}
-
