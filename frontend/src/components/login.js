@@ -29,9 +29,9 @@ const Login = () => {
                         sessionStorage.setItem('user', JSON.stringify(data));
                         fetch(url+'/cart/getbyuser/'+data._id)
                         .then(res => res.json())
-                        .then(data => {
-                            sessionStorage.setItem('cart', JSON.stringify(data));
-                            console.log(data);
+                        .then(cartData => {
+                            sessionStorage.setItem('cart', JSON.stringify(cartData));
+                            console.log(cartData);
 
                         })
                         window.location.replace('/home');

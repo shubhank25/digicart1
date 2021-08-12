@@ -10,7 +10,7 @@ import CartItem from "../components/CartItem";
 
 
 const CartScreen = () => {
-  const cartItems = JSON.parse(sessionStorage.getItem('cart'));
+  let cartItems = JSON.parse(sessionStorage.getItem('cart'));
   const currentUser = JSON.parse(sessionStorage.getItem('user'));
   const url = app_config.api_url
   console.log(cartItems);
@@ -35,18 +35,17 @@ const CartScreen = () => {
               icon: 'success',
               title: 'Cart Saved'
             })
-            window.location.replace('/home');
+            // window.location.replace('/home');
           });
       }
 
-
-
-
-
-      
-
   const qtyChangeHandler = (id, qty) => {
-      // dispatch(addToCart(id, qty));
+      console.log(id, qty);
+      for(let item of cartItems){
+        if (item.data.id == id){
+          item.data.qty = qty;
+        }
+      }
     };
 
     const removeFromCartHandler = (id) => {

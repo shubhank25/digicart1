@@ -8,8 +8,10 @@ import Swal from 'sweetalert2';
 
 const Header = () => {
     const [currentUser, setCurrentUser] = useState(sessionStorage.getItem('user'));
+   
     const logOut = () => {
         sessionStorage.removeItem('user');
+        sessionStorage.removeItem('cart');
         Swal.fire({
             icon: 'success',
             title: 'Logout'
@@ -22,11 +24,15 @@ const Header = () => {
         if (currentUser) {
             return <>
 
+                <li>
+                    <h5>Welcome {currentUser.name}</h5>
+                </li>
+           
                 <li >
 
                     <Link className="btn btn-light text-dark me-2" to={'/home'}>Home</Link>
                 </li>
-                
+
                 <li>
                     <i className="fas fa-shopping-cart"></i>
 
@@ -35,7 +41,7 @@ const Header = () => {
                     </Link>
                 </li>
                 &nbsp;
-               
+
                 <li >
                     <button className="btn btn-danger" onClick={logOut}>
 

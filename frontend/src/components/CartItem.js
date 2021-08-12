@@ -14,7 +14,7 @@ const CartItem = ({ item, qtyChangeHandler, removeHandler }) => {
       <p className="cartitem__price">₹{item.price}</p>
       <select
         value={item.qty}
-        onChange={(e) => qtyChangeHandler(item.product, e.target.value)}
+        onChange={(e) => qtyChangeHandler(item.id, e.target.value)}
         className="cartItem__select"
       >
         {[...Array(item.countInStock).keys()].map((x) => (

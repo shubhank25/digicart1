@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 import Header from './components/header';
 import Login from './components/login';
 import Register from './components/register';
@@ -15,18 +15,21 @@ function App() {
     <div>
       <Router>
         <Header />
-        <Route exact path="/digicart" component={Digicart} />
-        <Route component={Register} path={'/register'} />
-        <Route component={Login} path={'/login'} />
-        <Route component={Header} path={'/header'} />
 
-
+        <Switch>
+          <Route exact path="/digicart" component={Digicart} />
+          <Route component={Register} path={'/register'} />
+          <Route component={Login} path={'/login'} />
+          <Route component={Header} path={'/header'} />
+          
           <Route exact path="/home" component={HomeScreen} />
           <Route exact path="/product/:id" component={ProductScreen} />
           <Route exact path="/cart" component={CartScreen} />
-          
+          <Redirect to="/digicart" path="/" />
+        </Switch>
 
-        
+
+
         <Footer />
       </Router>
     </div>
