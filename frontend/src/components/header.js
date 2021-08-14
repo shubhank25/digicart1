@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 
 
 
+
 const Header = () => {
     const [currentUser, setCurrentUser] = useState(sessionStorage.getItem('user'));
    
@@ -24,9 +25,11 @@ const Header = () => {
         if (currentUser) {
             return <>
 
-                <li>
-                    <h5>Welcome {currentUser.name}</h5>
-                </li>
+                {/* <li>
+                   
+                Welcome {currentUser.name} 
+                
+                </li> */}
            
                 <li >
 

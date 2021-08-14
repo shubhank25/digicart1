@@ -6,7 +6,7 @@
 
 .navbar-nav{
     background: rgba(3, 217, 255, 0.527);
-   
+    
   
 }
 
@@ -17,11 +17,12 @@
   .digicart1{
       color: rgb(0, 0, 0);
       font-weight: bold;
+      transition: all .2s ease-in;
   }
 
 .digicart1:hover{
-    
-   color: rgb(192, 45, 101);
+    transform: scale(1.02);
+   color: rgba(255, 0, 0, 0.603);
 }
 
 .nav-link{
