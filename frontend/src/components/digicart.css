@@ -4,6 +4,9 @@
     sans-serif;
     }
     
+    body{
+      background-color:rgb(228, 224, 186);
+    }
 
 /* h4{
     margin-left: 20px;
@@ -31,7 +34,8 @@
 	max-width: 50%;
 	min-height: 100px;
   margin: 100px 0px 50px 100px;
-  padding: 50px 50px 40px 110px;
+  padding: 50px 50px 40px 60px;
+  text-align: center;
 }
 
 .home_text{
@@ -80,10 +84,15 @@
     color: black;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 900;
+  
   }
   
   .button11{
-    margin-left: 15px;
+    text-align: center;
     padding-left: 20px;
    
+  }
+
+  .marquee{
+    color: rgb(255, 0, 128);
   }
