@@ -20,6 +20,7 @@ const Login = () => {
                 console.log(data);
 
                 if (data) {
+
                     if (data.password === password) {
                         console.log('login success');
                         Swal.fire({
@@ -27,42 +28,63 @@ const Login = () => {
                             title: 'Login Success'
                         })
                         sessionStorage.setItem('user', JSON.stringify(data));
-                        fetch(url+'/cart/getbyuser/'+data._id)
-                        .then(res => res.json())
-                        .then(cartData => {
-                            sessionStorage.setItem('cart', JSON.stringify(cartData));
-                            console.log(cartData);
+                        fetch(url + '/cart/getbyuser/' + data._id)
+                            .then(res => res.json())
+                            .then(cartData => {
+                                sessionStorage.setItem('cart', JSON.stringify(cartData));
+                                console.log(cartData);
+
+                            })
+                        window.location.replace('/home');
+
+
+                    } else if (data.password !== password) {
+
+                        console.log('Your password is incorrect');
+
+                        Swal.fire({
+
+                            icon: 'error',
+                            title: 'Login failed',
+                            text: 'Incorrect password'
 
                         })
-                        window.location.replace('/home');
-                    
-                    
-                    }  else if(data.password !== password){
+
+
+                } else if (data.user !== email) {
 
                     console.log('Your password is incorrect');
-        
+
                     Swal.fire({
-                        
+
                         icon: 'error',
                         title: 'Login failed',
-                        text: 'Incorrect password'
-
+                        text: 'Email not Registered'
                     })
                 
-                    }
-            } else{
+                    window.location.replace('/home');
+                
+                } else {
 
                     console.log('user not found');
+                    Swal.fire({
 
-                    
+                        icon: 'error',
+                        title: 'You are not registered',
+                        
+                    })
+                
+                    window.location.replace('/register');
+
+
                 }
 
-                
+            }
             })
-        
+
 
     }
-    
+
 
     return (
         <div className="col-md-2 mx-auto mt-5">
@@ -71,7 +93,7 @@ const Login = () => {
                 <hr />
 
                 <label htmlFor="">Email</label>
-                <input className="form-control" autoFocus type="text" onChange={(e) => { setEmail(e.target.value)  }} />
+                <input className="form-control" autoFocus type="text" onChange={(e) => { setEmail(e.target.value) }} />
 
                 <label htmlFor="">Password</label>
                 <input className="form-control" type="password" onChange={(e) => { setPassword(e.target.value) }} />

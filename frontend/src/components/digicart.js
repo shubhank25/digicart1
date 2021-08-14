@@ -8,6 +8,7 @@ const Digicart = () => {
     return (
     <>
             <div className="col-md-12 col-sm-8">
+                <div className="row col-md-8">
 
                 <br></br>
                 <br></br>
@@ -22,9 +23,9 @@ const Digicart = () => {
                 <br></br><br></br>
             </div>
 
-
+            </div>
             <div className= "container1 col-md-6 col-sm-8">
-          
+            
 
             <p className="para1">You can login from here</p>
 
@@ -33,7 +34,7 @@ const Digicart = () => {
                     <Link to="/login" type="button" className="btn btn-outline-success me-2">Login</Link>
                
                     <Link to="/register" className="btn btn-outline-danger">Sign-up</Link>
-                        
+                      
                        
                         
 </div>
@@ -45,7 +46,7 @@ const Digicart = () => {
    <br></br>
    <br></br>
 
-
+ 
 </>
                         )
 }

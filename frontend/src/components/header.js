@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
 
 const Header = () => {
     const [currentUser, setCurrentUser] = useState(sessionStorage.getItem('user'));
-   
+
     const logOut = () => {
         sessionStorage.removeItem('user');
         sessionStorage.removeItem('cart');
@@ -25,12 +25,12 @@ const Header = () => {
         if (currentUser) {
             return <>
 
-                {/* <li>
+                {/* <li className="lili" >
                    
-                Welcome {currentUser.name} 
+               {currentUser &&  <h4>Welcome {currentUser.fullname}</h4> }
                 
                 </li> */}
-           
+
                 <li >
 
                     <Link className="btn btn-light text-dark me-2" to={'/home'}>Home</Link>
@@ -55,7 +55,10 @@ const Header = () => {
             </>
         } else {
             return <>
+                <li >
 
+                    <Link className="btn btn-light text-dark me-2" to={'/home'}>Home</Link>
+                </li>
                 <li>
                     <Link to="/login" type="button" className="btn btn-outline-success me-2">Login</Link>
                 </li>
