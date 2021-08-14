@@ -12,7 +12,7 @@ const Header = () => {
 
     const logOut = () => {
         sessionStorage.removeItem('user');
-        sessionStorage.removeItem('cart');
+        // sessionStorage.removeItem('cart');
         Swal.fire({
             icon: 'success',
             title: 'Logout'

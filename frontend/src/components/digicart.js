@@ -15,9 +15,10 @@ const Digicart = () => {
             <Marquee className="marquee">
                 WELCOME TO DIGICART : ONLINE SHOP FOR MOBILE AND MOBILE ACCESSORIES
             </Marquee>
+
             <Carousel fade>
                 <Carousel.Item>
-                    <img
+                <Link to={'/login'}>  <img
                         className="d-block w-100 "
                         src="https://photos5.appleinsider.com/gallery/38573-73427-iPhone-12-Green-and-IPhone-12-Pro-Blue-xl.jpg"
                         alt="First slide"
@@ -28,10 +29,10 @@ const Digicart = () => {
                             Ceramic Shield, tougher than any smartphone glass
                             A14 Bionic chip, the fastest chip ever in a smartphone
                             Pro camera system with 12MP Ultra Wide, Wide and Telephoto cameras; 4x optical zoom range; Night mode, Deep Fusion, Smart HDR 3, Apple ProRAW, 4K Dolby Vision HDR recording </p>
-                    </Carousel.Caption>
+                    </Carousel.Caption></Link>
                 </Carousel.Item>
                 <Carousel.Item>
-                    <img
+                <Link to={'/login'}>   <img
                         className="d-block w-100"
                         src="https://www.prameyanews.com/wp-content/uploads/2020/10/akrales_190913_3666_0391.21.jpg"
                         alt="Second slide"
@@ -42,10 +43,10 @@ const Digicart = () => {
                         <p>6.1-inch (15.5 cm diagonal) Liquid Retina HD LCD display
                             Water and dust resistant (2 meters for up to 30 minutes, IP68)
                             Dual-camera system with 12MP Ultra Wide and Wide cameras; Night mode, Portrait mode, and 4K video up to 60fps</p>
-                    </Carousel.Caption>
+                    </Carousel.Caption></Link>
                 </Carousel.Item>
                 <Carousel.Item>
-                    <img
+                <Link to={'/login'}>  <img
                         className="d-block w-100"
                         src="https://fdn.gsmarena.com/imgroot/news/20/12/iphone-13-on-schedule/-1200w5/gsmarena_000.jpg"
                         alt="Third slide"
@@ -59,7 +60,7 @@ const Digicart = () => {
                             Advanced dual-camera system with 12MP Ultra Wide and Wide cameras; Night mode, Deep Fusion, Smart HDR 3, 4K Dolby Vision HDR recording
                             12MP TrueDepth front camera with Night mode, 4K Dolby Vision HDR recording
                             Industry-leading IP68 water resistance</p>
-                    </Carousel.Caption>
+                    </Carousel.Caption></Link>
                 </Carousel.Item>
             </Carousel>
 
@@ -85,7 +86,7 @@ const Digicart = () => {
                         <div className="container1">
 
 
-                            <p className="para1">You can login from here</p>
+                            <p className="para1">You can login/Register from here</p>
 
 
 
