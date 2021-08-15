@@ -20,6 +20,7 @@ const Login = () => {
                 console.log(data);
 
                 if (data) {
+
                     if (data.password === password) {
                         console.log('login success');
                         Swal.fire({
@@ -38,7 +39,7 @@ const Login = () => {
                                 }
 
                             })
-                        // window.location.replace('/home');
+                        window.location.replace('/home');
 
 
                     } else if (data.password !== password) {

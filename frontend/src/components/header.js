@@ -12,7 +12,7 @@ const Header = () => {
 
     const logOut = () => {
         sessionStorage.removeItem('user');
-        sessionStorage.removeItem('cart');
+        // sessionStorage.removeItem('cart');
         Swal.fire({
             icon: 'success',
             title: 'Logout'
@@ -25,9 +25,9 @@ const Header = () => {
         if (currentUser) {
             return <>
 
-                {/* <li>
+                {/* <li className="lili" >
                    
-                Welcome {currentUser.name} 
+               {currentUser &&  <h4>Welcome {currentUser.fullname}</h4> }
                 
                 </li> */}
 
@@ -56,7 +56,10 @@ const Header = () => {
             </>
         } else {
             return <>
+                <li >
 
+                    <Link className="btn btn-light text-dark me-2" to={'/home'}>Home</Link>
+                </li>
                 <li>
                     <Link to="/login" type="button" className="btn btn-outline-success me-2">Login</Link>
                 </li>
