@@ -50,7 +50,7 @@ router.get('/getall', (req, res) => {
 
 router.get('/getbyuser/:id', (req, res) => {
 
-    Model.find({user : req.params.id})
+    Model.findOne({ user: req.params.id })
         .then(data => {
             console.log('cart data fetched by userid');
             res.status(200).json(data);

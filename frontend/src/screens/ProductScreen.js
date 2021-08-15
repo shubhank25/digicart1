@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import app_config from '../config';
 import products from '../productData';
+import Swal from "sweetalert2";
 
 // Actions
 // import { getProductDetails } from "../redux/actions/productActions";
@@ -10,30 +11,28 @@ import products from '../productData';
 
 const ProductScreen = ({ match, history }) => {
   const [qty, setQty] = useState(1);
-  
+
   const [loading, setLoading] = useState(false);
 
 
   const { id } = useParams();
   const url = app_config.api_url;
   const productList = products;
-  const [productData, setProductData] = useState(productList[id-1]);
+  const [productData, setProductData] = useState(productList[id - 1]);
   console.log(productData);
   let cart = JSON.parse(sessionStorage.getItem('cart'));
+  const currentUser = JSON.parse(sessionStorage.getItem('user'));
 
   useEffect(() => {
-      
+
   }, [])
 
   const addToCartHandler = () => {
-    if(!cart){
-      cart = [];
-    }
-    cart.push({data : productData, qty: qty});
+    const cartItem = { data: productData, qty: qty };
+    cart.push(cartItem);
     sessionStorage.setItem('cart', JSON.stringify(cart));
-    
-    history.push(`/cart`);
-  };
+    window.location.replace('/cart')
+  }
 
   return (
     <div className="productscreen">
